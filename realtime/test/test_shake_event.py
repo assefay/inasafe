@@ -33,11 +33,11 @@ from qgis.core import QgsFeatureRequest
 # pylint: enable=W0611
 from safe.api import unique_filename, temp_dir
 from safe_qgis.utilities.utilities_for_testing import get_qgis_app
-from utils import shakemapExtractDir, shakemapZipDir, dataDir
-from shake_event import ShakeEvent
+from realtime.utils import shakemapExtractDir, shakemapZipDir, dataDir
+from realtime.shake_event import ShakeEvent
 # The logger is intialised in utils.py by init
 LOGGER = logging.getLogger('InaSAFE')
-QGISAPP, CANVAS, IFACE, PARENT = get_qgis_app()
+QGIS_APP, CANVAS, IFACE, PARENT = get_qgis_app()
 
 
 class TestShakeEvent(unittest.TestCase):
@@ -257,7 +257,7 @@ search_boxes: None
 
     def testCalculateFatalities(self):
         """Test that we can calculate fatalities."""
-        LOGGER.debug(QGISAPP.showSettings())
+        LOGGER.debug(QGIS_APP.showSettings())
         myShakeId = '20120726022003'
         myShakeEvent = ShakeEvent(myShakeId)
         myResult, myFatalitiesHtml = myShakeEvent.calculateImpacts()

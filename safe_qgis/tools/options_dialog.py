@@ -130,7 +130,7 @@ class OptionsDialog(QtGui.QDialog, Ui_OptionsDialogBase):
         self.cbxDevMode.setChecked(flag)
 
         flag = bool(settings.value(
-            'inasafe/useNativeZonalStats', False))
+            'inasafe/use_native_zonal_stats', False))
         self.cbxNativeZonalStats.setChecked(flag)
 
     def save_state(self):

@@ -88,7 +88,7 @@ from safe.engine.impact_functions_for_testing import \
 
 LOGGER = logging.getLogger('InaSAFE')
 
-QGISAPP, CANVAS, IFACE, PARENT = get_qgis_app()
+QGIS_APP, CANVAS, IFACE, PARENT = get_qgis_app()
 DOCK = Dock(IFACE)
 
 YOGYA2006_title = 'An earthquake in Yogyakarta like in 2006'
@@ -1043,10 +1043,10 @@ class TestDock(TestCase):
 
         # use QGIS zonal stats only in the test
         useNativeZonalStatsFlag = bool(QtCore.QSettings().value(
-            'inasafe/useNativeZonalStats', False))
-        QtCore.QSettings().setValue('inasafe/useNativeZonalStats', True)
+            'inasafe/use_native_zonal_stats', False))
+        QtCore.QSettings().setValue('inasafe/use_native_zonal_stats', True)
         DOCK.accept()
-        QtCore.QSettings().setValue('inasafe/useNativeZonalStats',
+        QtCore.QSettings().setValue('inasafe/use_native_zonal_stats',
                                     useNativeZonalStatsFlag)
 
         myResult = DOCK.wvResults.page_to_text()
